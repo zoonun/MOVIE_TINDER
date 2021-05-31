@@ -1,6 +1,4 @@
-import requests
-import random as my_random
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.conf import settings
 from django.http import JsonResponse
 from rest_framework import status
