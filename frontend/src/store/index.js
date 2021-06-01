@@ -79,7 +79,6 @@ export default new Vuex.Store({
       state.movieTitles = tmp_list
     },
     GET_GENRES(state, res) {
-      console.log(res)
       state.genre_names = res
     },
     // COMMUNITY MUTATIONS
@@ -334,6 +333,7 @@ export default new Vuex.Store({
         headers: genreItems.token
       })
       .then(() => {
+        console.log(genreItems.genres, '섭밋')
         commit('SUBMIT_GENRES')
       })
       .catch(err => console.log(err))

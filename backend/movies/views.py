@@ -46,19 +46,25 @@ def random(request):
 
 # GET : genre 데이터를 리턴
 # POST : tinder로 받아온 선호 장르 입력
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @authentication_classes([JSONWebTokenAuthentication])
 @permission_classes([IsAuthenticated])
 def genres(request):
+    person = get_object_or_404(get_user_model(), username=request.user)
+    # 해당 유저가 어떤 장르를 가장 좋아하는지 체크하기 위한 Json(dict type)
+    person_genre_dict = person.genre_dict
+
     if request.method == 'GET':
         genres = Genre.objects.all()
         serializer = GenreSerializer(genres, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     else:
-        person = get_object_or_404(get_user_model(), username=request.user)
-        # 여기서 데이터를 하나만 보내야 함!
         for data in request.data:
+            # MtoM field 관리
             person.like_genres.add(data)
+            # Json field 관리
+            person_genre_dict[str(data)] += 1
+        person.save()
         return Response(status=status.HTTP_201_CREATED)
 
 # 장르 데이터를 기반으로 영화 추천
@@ -67,19 +73,14 @@ def genres(request):
 @permission_classes([IsAuthenticated])
 def recommend(request):
     person = get_object_or_404(get_user_model(), username=request.user)
-    genres = person.like_genres.all()
-
-    genres_dict = {'12': 0, '14': 0, '16': 0, '18': 0, '27': 0, '28': 0, '35': 0, '36': 0, '37': 0, '53':0, '80': 0, '99':0, '878':0, '9648':0, '10402':0, '10749':0, '10751':0, '10752':0, '10770':0 }
-
-    for genre in genres:
-        genres_dict[str(genre.id)] += 1
+    person_genre_dict = person.genre_dict
 
     max_val = 0
     best_genre = ''
-    for key, val in genres_dict.items():
-        if max_val < val:
-            best_genre = key
+    for key, val in person_genre_dict.items():
+        if val >= max_val:
             max_val = val
+            best_genre = key
 
     movies = Movie.objects.order_by('?')[:1000]
     recommend_movies = []
