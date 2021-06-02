@@ -9,7 +9,7 @@
 - backend 폴더에서
   - `python -m venv venv`
   - `source venv/Scripts/activate`
-  - (DB 관련 자료를 다 날렸다면, 선택사항) 
+  - (DB 관련 자료를 다 날렸다면, 선택사항)
     - `python manage.py makemgrations`
   - 최초 실행 시
     - 데이터베이스 생성
@@ -54,7 +54,6 @@
 - 크게 영화 정보, 추천 페이지, 틴더 페이지, 커뮤니티 페이지 등의 다양한 URL
 - HTTP method와 상태 코드를 상황에 맞게 리턴
 - axios를 활용한 비동기 요청으로 UX 향상
-
 
 
 # 기타
