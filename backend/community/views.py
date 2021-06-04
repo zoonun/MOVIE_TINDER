@@ -10,7 +10,6 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-
 # Create your views here.
 # review 목록 조회, 생성
 @api_view(['GET', 'POST'])
@@ -19,7 +18,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 def review_create(request):
     if request.method == 'GET':
         reviews = Review.objects.order_by('-pk')
-        serializer = ReviewListSerializer(reviews, many=True)
+        serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = ReviewSerializer(data=request.data)

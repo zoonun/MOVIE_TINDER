@@ -2,7 +2,7 @@
   <div>
     <v-expansion-panel-header>
       리뷰 : <v-text-field v-model="reviewItem.title"></v-text-field>
-      작성자 : <span>{{ review.user }}</span>
+      작성자 : <span>{{ review.user.username }}</span>
       작성일 : <span>{{ review.created_at | moment('YYYY-MM-DD HH:mm:ss') }}</span>
       수정일 : <span>{{ review.updated_at | moment('YYYY-MM-DD HH:mm:ss') }}</span>
     </v-expansion-panel-header>
@@ -87,6 +87,9 @@ export default {
       this.$store.dispatch('deleteReview', reviewItemSet)
     }
   },
+  created() {
+    console.log(this.review)
+  }
 }
 </script>
 

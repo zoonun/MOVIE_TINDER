@@ -16,33 +16,20 @@ class RateSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('movie', 'user',)
 
+# TODO : 안쓰는 시리얼라이저
 class ReviewListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
         fields = '__all__'
+        read_only_fields = ('user',)
 
 class ReviewSerializer(serializers.ModelSerializer):
-    # comment_set = CommentSerializer(many=True, read_only=True)
-    rates = RateSerializer(many=True, read_only=True)
-    rate_count = serializers.IntegerField(
-        source = 'rates.count',
-        read_only = True,
-    )
-    rate_average = serializers.SerializerMethodField('rates_avg')
-
-    def rates_avg(self, movie):
-        cnt = movie.rates.count()
-        rates_sum = 0
-        if cnt:
-            for rate in movie.rates.all():
-                rates_sum += rate.score
-            result = round(rates_sum/cnt, 2)
-        else:
-            result = 0
-        return result
-
     class Meta:
         model = Review
+        # 원래는 그냥 user 객체를 보여줘야 하는데, 장고 내부적으로 할 때에는 그 처리를 해 주지 않아도 username을 보여줬었다.
+        # 하지만 serializer는 user를 그냥 보여준다고 할 때, 그냥 db의 pk값을 보여주는게 맞다.
+        # 해결 방법 1. ReviewSerializer의 depth를 1로 줘서. 더 파고 들어갈 depth가 있을 때에만 더 들어간다.
         fields = '__all__'
+        depth = 1
         read_only_fields = ('user', 'like_users',)

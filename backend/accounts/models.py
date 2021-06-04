@@ -8,3 +8,7 @@ def genre_default():
 
 class User(AbstractUser):
     genre_dict = models.JSONField(default=genre_default)
+
+    # default 값이 이거라서 변하는게 없는 것.
+    # def __str__(self):
+    #     return self.username
