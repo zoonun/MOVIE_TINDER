@@ -11,7 +11,6 @@
     </v-btn>
     <br>
     <Tinder
-      v-if="randomMovies"
       ref="tinder"
       key-name="poster_path"
       :queue.sync="queue"
@@ -20,7 +19,8 @@
       allow-down
       @submit="onSubmit"
     >
-      <template slot-scope="scope">
+      <template
+        slot-scope="scope">
         <div
           class="pic"
           :style="{
@@ -57,8 +57,15 @@ export default {
     history: []
   }),
   created() {
+    // 랜덤 무비가 있을 때 mock을 실행해야 함.
+    // watch를 쓰거나, async - await를 쓰는 방법 or promise로 .then 아래에 보여주기
     this.$store.dispatch('getRandomMovies', this.setToken())
-    this.mock()
+  },
+  watch: {
+    // 해결!! watch
+    randomMovies() {
+      this.mock()
+    }
   },
   computed: {
     ...mapGetters([
