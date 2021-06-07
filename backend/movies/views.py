@@ -1,16 +1,14 @@
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 from django.http import JsonResponse
+
 from rest_framework import status
 from rest_framework.response import Response
-from .models import Movie
-from .serializers import MovieSerializer, MovieRandomSerializer
-
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from .models import Movie, Genre
-from .serializers import MovieSerializer, GenreSerializer
+from .serializers import MovieSerializer, MovieRandomSerializer, GenreSerializer
 
 # user 모델 가져오기
 from django.contrib.auth import get_user_model
