@@ -131,7 +131,6 @@ export default new Vuex.Store({
     },
     MOVIE_LIKE(state, genres) {
       for (var genre of genres) {
-        console.log(genre)
         state.genres.push(genre)
       }
     },
@@ -284,7 +283,6 @@ export default new Vuex.Store({
       .catch(err => console.log(err))
     },
     updateComment({commit}, objs) {
-      console.log(objs.comment_id)
       axios({
         method: 'PUT',
         url: `${SERVER_URL}community/comments/${objs.comment_id}/`,
@@ -333,7 +331,6 @@ export default new Vuex.Store({
         headers: genreItems.token
       })
       .then(() => {
-        console.log(genreItems.genres, '섭밋')
         commit('SUBMIT_GENRES')
       })
       .catch(err => console.log(err))

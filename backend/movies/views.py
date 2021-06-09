@@ -80,19 +80,21 @@ def recommend(request):
             max_val = val
             best_genre = key
 
-    movies = Movie.objects.order_by('?')[:1000]
-    recommend_movies = []
+    if max_val != 0:
+        movies = Movie.objects.order_by('?')[:1000]
+        recommend_movies = []
+        cnt = 0
+        for movie in movies:
+            if cnt >= 200:
+                break
+            if int(best_genre) in [x.id for x in movie.genre_ids.all()]:
+                recommend_movies.append(movie)
+                cnt += 1
+                continue
 
-    cnt = 0
-    for movie in movies:
-        if cnt >= 200:
-            break
-        if int(best_genre) in [x.id for x in movie.genre_ids.all()]:
-            recommend_movies.append(movie)
-            cnt += 1
-            continue
+        best_genre = get_object_or_404(Genre, pk=int(best_genre))
 
-    best_genre = get_object_or_404(Genre, pk=int(best_genre))
-
-    serializer = MovieSerializer(recommend_movies[:50], many=True)
-    return JsonResponse({'data': serializer.data, 'best_genre': best_genre.name }, status=status.HTTP_200_OK)
+        serializer = MovieSerializer(recommend_movies[:50], many=True)
+        return JsonResponse({'data': serializer.data, 'best_genre': best_genre.name }, status=status.HTTP_200_OK)
+    else:
+        return JsonResponse({'best_genre': '아직 데이터가 없는 상태' }, status=status.HTTP_200_OK)
