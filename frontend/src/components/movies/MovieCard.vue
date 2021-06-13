@@ -1,60 +1,71 @@
 <template>
-  <div class="movie-card">
-    <div class="col-mb-4 movie-item">
-      <img >
-      <div class="movie-detail">
-      </div>
-      <v-dialog
-        v-model="dialog"
-        fullscreen
-        hide-overlay
-        transition="dialog-bottom-transition"
+  <div class="col-mb-6 movie-item">
+    <v-dialog
+      v-model="dialog"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+      <v-img
+        :src="imgSrc" alt="포스터 없음"
+        v-bind="attrs"
+        v-on="on"
       >
-       <template v-slot:activator="{ on, attrs }">
-        <v-img
-          :src="imgSrc" class="img-fluid" alt="포스터 없음"
-          v-bind="attrs"
-          v-on="on"
-        >
-        </v-img>
-      </template>
-      <v-card dark
-          color="black"
-          >
-        <v-toolbar
+      </v-img>
+    </template>
+    <div class="movie-detail-card">
+      <div class="movie-detail-toolbar">
+        <v-btn
+          icon
           dark
-          color="black"
-        >
-          <v-btn
-            icon
-            dark
-            @click="dialog = false"
-          >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-          <v-toolbar-title>{{ movie.title }}</v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-        <v-list
-          three-line
-          subheader
-          class="card"
-        >
-          <v-list-item id="img-info">
-              <v-img id="poster" :src="imgSrc" class="img-fluid" alt="포스터 없음"></v-img>
-              <div class="divide">
-                <div class="movie-info">
-                  <h4>제목 : {{ movie.title }}</h4>
-                  <h4>개봉일 : {{ movie.release_date }}</h4>
-                  <h4>평점 : {{ movie.vote_average }}</h4>
-                </div>
-                <h5 class="overview">{{ movie.overview }}</h5>
+          @click="dialog = false">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+        <img id="logo-image" src="@/assets/images/logo.png"/>
+      </div>
+      <div class="movie-detail-body">
+        <div class="movie-detail-poster">
+          <img :src="imgSrc" alt="포스터 없음">
+        </div>
+        <div class="movie-detail-info">
+          <!-- header -->
+          <div class="movie-detail-info-header">
+            <div class="movie-detail-info-header-left">
+              <div class="movie-detail-title">
+                {{ movie.title }}
               </div>
-          </v-list-item>
-        </v-list>
-      </v-card>
-      </v-dialog>
+              <div
+              v-if="movie.release_date"
+              class="movie-release-date">
+                개봉  :  {{ movie.release_date }}
+              </div>
+            </div>
+            <div class="movie-detail-info-header-right">
+              <div class="movie-vote">
+                {{ movie.vote_average }}
+              </div>
+              <img id="movie-star" src="@/assets/images/star.png">
+            </div>
+          </div>
+          <!-- overview -->
+          <div class="movie-detail-overview-header">
+            줄거리
+          </div>
+          <hr>
+          <div
+            v-if="movie.overview"
+            class="movie-detail-overview-body">
+            {{ movie.overview }}
+          </div>
+          <div v-else
+            class="movie-detail-overview-body">
+            해당 영화는 줄거리가 제공되지 않습니다.
+          </div>
+        </div>
+      </div>
     </div>
+    </v-dialog>
   </div>
 </template>
 
@@ -69,7 +80,6 @@ export default {
   },
   data() {
     return {
-      showModal: false,
       dialog: false,
       notifications: false,
       sound: true,
@@ -89,5 +99,5 @@ export default {
 </script>
 
 <style>
-  @import '../../assets/styles/common.css';
+
 </style>

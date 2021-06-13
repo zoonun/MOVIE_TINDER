@@ -1,0 +1,41 @@
+/* navbar */
+.navbar {
+  background-color: #000000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.container-fluid {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#navbarNav {
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  color: #db0000;
+  letter-spacing: 2px;
+}
+
+.navbar-brand:hover {
+  color: #db0000;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: gainsboro;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+#navbar-logo {
+  height: 58px;
+}

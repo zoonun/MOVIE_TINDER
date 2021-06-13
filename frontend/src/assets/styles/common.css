@@ -35,7 +35,8 @@ body {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  /* 트랜지션을 넣었더니 더 구림 */
+  /* transition: opacity .5s; */
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
@@ -84,109 +85,6 @@ textarea {
   margin-top: 1rem;
 }
 
-/* navbar */
-.navbar {
-  background-color: #000000;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-#navbarNav {
-  justify-content: space-between;
-}
-
-.navbar-brand {
-  font-family: 'Anton', sans-serif;
-  font-size: 2rem;
-  color: #db0000;
-  letter-spacing: 2px;
-}
-
-.navbar-brand:hover {
-  color: #db0000;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: gainsboro;
-}
-
-.nav-link:hover {
-  color: white;
-}
-
-/* movies */
-.popular-list {
-  display: flex;
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-
-.movie-item {
-  position: relative;
-  display: block;
-  flex: 1 1 0px;
-  transition: transform 500ms;
-}
-
-.movie-item:hover {
-  cursor: pointer;
-}
-
-.popular-list .movie-item:focus,
-.popular-list .movie-item:hover {
-  transform: scale(1.4);
-  z-index: 1;
-}
-
-.popular-list:focus-within ~ .movie-item,
-.popular-list:hover ~ .movie-item {
-  transform: translateX(-25%);
-}
-
-.movie-item:focus  .movie-item,
-.movie-item:hover  .movie-item {
-  transform: translateX(25%);
-}
-
-.movie-item img {
-  display: block;
-  max-width: 100%;
-}
-
-/* movieCard */
-.card {
-  margin-top: 2rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-
-#img-info {
-  margin: 3rem;
-  padding: 5rem;
-}
-
-#poster {
-  height: 750px;
-  /* margin-top: 5rem;
-  margin-left: 5rem; */
-  float: left;
-} */
-
-.divide {
-  margin: 5rem;
-}
-
-.overview {
-  line-height: 200%;
-  padding: 2rem;
-}
-
-.movie-info {
-  padding: 3rem;
-}
 
 /* community */
 .review-list-inset {
@@ -195,28 +93,6 @@ textarea {
 
 .v-expansion-panel input, textarea{
   color: white;
-}
-
-/* button */
-.btn-create {
-  font-weight: bold;
-  background-color: white;
-  color: #000000;
-  margin-right: 5px;
-}
-
-.btn-modify {
-  font-weight: bold;
-  background-color: #564d4d;
-  color: white;
-  margin-right: 5px;
-}
-
-.btn-delete {
-  font-weight: bold;
-  background-color: #831010;
-  color: white;
-  margin-left: 5px;
 }
 
 /* input */

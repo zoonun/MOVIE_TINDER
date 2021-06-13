@@ -1,0 +1,21 @@
+/* button */
+.btn-create {
+  font-weight: bold;
+  background-color: white;
+  color: #000000;
+  margin-right: 5px;
+}
+
+.btn-modify {
+  font-weight: bold;
+  background-color: #564d4d;
+  color: white;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  font-weight: bold;
+  background-color: #831010;
+  color: white;
+  margin-left: 5px;
+}

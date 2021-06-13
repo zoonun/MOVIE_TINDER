@@ -51,5 +51,9 @@ export default {
 
 <style>
   @import './assets/styles/common.css';
+  @import './assets/styles/font.css';
+  @import './assets/styles/navbar.css';
+  @import './assets/styles/button.css';
   @import './assets/styles/tinder.css';
+  @import './assets/styles/moviecard.css';
 </style>
