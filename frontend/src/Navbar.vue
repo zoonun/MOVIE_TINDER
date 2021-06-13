@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">NETFLIX</router-link>
+      <router-link class="navbar-brand" :to="{ name: 'Home' }">
+        <img id="navbar-logo" src="@/assets/images/logo.png" alt="netflix_logo">
+      </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
