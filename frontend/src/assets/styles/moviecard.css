@@ -1,0 +1,98 @@
+/* movies */
+.popular-list {
+  display: flex;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.movie-item {
+  position: relative;
+  display: block;
+  flex: 1 1 0px;
+  transition: transform 500ms;
+}
+
+.movie-item:hover {
+  cursor: pointer;
+}
+
+.popular-list .movie-item:focus,
+.popular-list .movie-item:hover {
+  transform: scale(1.4);
+  z-index: 1;
+}
+
+.popular-list:focus-within ~ .movie-item,
+.popular-list:hover ~ .movie-item {
+  transform: translateX(-25%);
+}
+
+.movie-item:focus  .movie-item,
+.movie-item:hover  .movie-item {
+  transform: translateX(25%);
+}
+
+/* movieCards */
+#logo-image {
+  height: 100%;
+}
+
+.movie-detail-card {
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 5rem;
+  height: 100%;
+  background-color: #000000;
+}
+
+.movie-detail-toolbar {
+  height: 58px;
+}
+
+.movie-detail-body {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1rem;
+}
+
+.movie-detail-info {
+  margin: 1rem 0 0 4rem;
+  width: 60%;
+}
+
+.movie-detail-info-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.movie-detail-title {
+  font-size: 40px;
+}
+
+.movie-detail-info-header-right {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.movie-vote {
+  font-size: 30px;
+}
+
+#movie-star {
+  height: 50%;
+  margin-left: 1rem;
+}
+
+.movie-detail-overview-header {
+  margin-top: 5rem;
+  font-size: 32px;
+}
+
+.movie-detail-overview-body {
+  font-size: 20px;
+}
