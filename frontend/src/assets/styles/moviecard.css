@@ -42,13 +42,14 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  padding: 5rem;
-  height: 100%;
+  padding: 2rem;
+  min-height: 100%;
+  height: auto;
   background-color: #000000;
 }
 
 .movie-detail-toolbar {
-  height: 58px;
+  height: 56px;
 }
 
 .movie-detail-body {
@@ -58,6 +59,9 @@
 }
 
 .movie-detail-info {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
   margin: 1rem 0 0 4rem;
   width: 60%;
 }
@@ -67,6 +71,9 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   height: 80px;
+}
+.movie-detail-poster > img {
+  width: 500px;
 }
 
 .movie-detail-title {

@@ -1,0 +1,64 @@
+/* youtube */
+.movie-youtube-area {
+  font-size: 32px;
+}
+
+.youtube-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.youtube-list .youtube-list-item:focus,
+.youtube-list .youtube-list-item:hover {
+  transform: scale(1.4);
+  z-index: 1;
+}
+
+.youtube-list:focus-within ~ .youtube-list-item,
+.youtube-list:hover ~ .youtube-list-item {
+  transform: translateX(-15%);
+}
+
+.youtube-list-item:focus  .youtube-list-item,
+.youtube-list-item:hover  .youtube-list-item {
+  transform: translateX(15%);
+}
+
+.youtube-list-item {
+  display: flex;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 500ms;
+}
+
+.youtube-list-item:hover {
+  background: #eee;
+}
+
+.youtube-list-item > img {
+  height: fit-content;
+  width: 200px;
+  border: 1px solid #eee;
+}
+
+/* youtube dialog */
+.youtube-dialog-card {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #000000;
+}
+
+.youtube-dialog-toolbar {
+  height: 56px;
+}
+
+.youtube-container > iframe {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+}
