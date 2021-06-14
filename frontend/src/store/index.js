@@ -4,6 +4,8 @@ import axios from 'axios'
 import router from '@/router'
 
 const SERVER_URL = 'http://127.0.0.1:8000/'
+const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search'
+const YOUTUBE_KEY = process.env.VUE_APP_YOUTUBE_API
 
 Vue.use(Vuex)
 
@@ -20,12 +22,14 @@ export default new Vuex.Store({
     movieTitles: [],
     comments: [],
     comment: null,
-    // TINDER
+    // tinder
     randomMovies: [],
     genres: [],
     // recommend
     recommendMovies: [],
     bestGenre: null,
+    // youtube
+    youtubeVideos: [],
   },
   getters: {
     movies(state) {
@@ -146,6 +150,10 @@ export default new Vuex.Store({
     GET_LIKE_GENRE_MOVIES(state, res) {
       state.recommendMovies = res.data
       state.bestGenre = res.best_genre
+    },
+    // YOUTUBE MUTATIONS
+    SEARCH_YOUTUBE: function (state, res) {
+      state.youtubeVideos = res.data.items
     },
   },
   actions: {
@@ -346,7 +354,26 @@ export default new Vuex.Store({
         commit('GET_LIKE_GENRE_MOVIES', res.data)
       })
       .catch(err => console.log(err))
-    }
+    },
+    // YOUTUBE ACTIONS
+    searchYoutube: function ({ commit }, searchText) {
+      const params = {
+        q: searchText+'movie',
+        key: YOUTUBE_KEY,
+        part: 'snippet',
+        type: 'video'
+      }
+      axios({
+        method: 'get',
+        url: YOUTUBE_URL,
+        params,
+      })
+      .then(res => {
+        // console.log(res.data.items)
+        commit('SEARCH_YOUTUBE', res)
+      })
+      .catch(err => console.log(err))
+    },
   },
   modules: {
 
