@@ -43,3 +43,22 @@
   width: 200px;
   border: 1px solid #eee;
 }
+
+/* youtube dialog */
+.youtube-dialog-card {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #000000;
+}
+
+.youtube-dialog-toolbar {
+  height: 56px;
+}
+
+.youtube-container > iframe {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+}

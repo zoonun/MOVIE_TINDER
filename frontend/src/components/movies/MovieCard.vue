@@ -41,6 +41,10 @@
                 class="movie-release-date">
                   개봉  :  {{ movie.release_date }}
                 </div>
+                <div
+                v-if="movie.genre_ids">
+                  {{ movie.genre_ids }}
+                </div>
               </div>
               <div class="movie-detail-info-header-right">
                 <div class="movie-vote">
@@ -103,7 +107,7 @@ export default {
   },
   computed: {
     imgSrc: function () {
-      return "https://image.tmdb.org/t/p/w500" + this.movie.poster_path
+      return "https://image.tmdb.org/t/p/original" + this.movie.poster_path
     },
   },
 }

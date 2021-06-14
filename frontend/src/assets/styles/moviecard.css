@@ -49,7 +49,7 @@
 }
 
 .movie-detail-toolbar {
-  height: 58px;
+  height: 56px;
 }
 
 .movie-detail-body {
@@ -71,6 +71,9 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   height: 80px;
+}
+.movie-detail-poster > img {
+  width: 500px;
 }
 
 .movie-detail-title {
