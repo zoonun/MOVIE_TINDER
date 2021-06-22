@@ -43,7 +43,7 @@
                 </div>
                 <div
                 v-if="movie.genre_ids">
-                  {{ movie.genre_ids }}
+                  <!-- {{ movie.genre_ids }} -->
                 </div>
               </div>
               <div class="movie-detail-info-header-right">

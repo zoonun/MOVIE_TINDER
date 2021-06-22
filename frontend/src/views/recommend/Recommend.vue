@@ -1,7 +1,9 @@
 <template>
   <div class="recommend">
-    <h2>당신이 좋아할 만한</h2>
-    <h4>당신이 가장 좋아하는 장르는 {{ bestGenre }}입니다.</h4>
+    <header>
+      <h2>당신이 좋아할 만한</h2>
+      <h4>당신이 가장 좋아하는 장르는 {{ bestGenre }}입니다.</h4>
+    </header>
     <div v-if="recommendMovies == null">
       <router-link :to="{ name: 'TinderMain' }">틴더</router-link>
       로 이동해서 영화 소개팅을 진행해 주세요!</div>

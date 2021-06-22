@@ -13,7 +13,7 @@
     </template>
       <!-- dialog body -->
       <div class="youtube-dialog-card">
-        <div class="youtube-dialog-toolbar">
+        <!-- <div class="youtube-dialog-toolbar">
           <v-btn
             icon
             dark
@@ -21,7 +21,7 @@
             <v-icon>mdi-close</v-icon>
           </v-btn>
           <img id="logo-image" src="@/assets/images/logo.png"/>
-        </div>
+        </div> -->
         <div class="youtube-container">
           <iframe :src="videoURL" frameborder="0"></iframe>
         </div>

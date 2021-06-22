@@ -1,6 +1,8 @@
 <template>
   <div class="community">
-    <h2>리뷰 게시판</h2>
+    <header>
+      <h2>리뷰 게시판</h2>
+    </header>
     <ReviewForm/>
     <ReviewList/>
   </div>

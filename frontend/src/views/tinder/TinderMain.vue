@@ -1,11 +1,13 @@
 <template>
   <div class="tinder-div">
-    <h2>영화 Tinder</h2>
-    <br>
-    <h4>좋아하는 영화라면 오른쪽, 싫어하는 영화라면 왼쪽으로 슬라이딩 해주세요.</h4>
-    <small>호감도를 바탕으로 영화 추천 서비스를 제공합니다.</small>
-    <br>
-    <h5>호감을 표시한 영화 : </h5>
+    <header>
+      <h2>영화 Tinder</h2>
+      <br>
+      <h4>좋아하는 영화라면 오른쪽, 싫어하는 영화라면 왼쪽으로 슬라이딩 해주세요.</h4>
+      <small>호감도를 바탕으로 영화 추천 서비스를 제공합니다.</small>
+      <br>
+      <h5>호감을 표시한 영화 : </h5>
+    </header>
     <v-btn color="#831010" dark @click="submitGenres">
       호감도 저장하기
     </v-btn>

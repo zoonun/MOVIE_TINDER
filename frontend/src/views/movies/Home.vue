@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <h2>요즘 인기있는</h2>
+    <header>
+      <h2>요즘 인기있는</h2>
+    </header>
     <!-- MovieCards -->
     <div class="popular-list row row-cols-1 row-cols-md-5 gy-3">
       <MovieCard
