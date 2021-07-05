@@ -4,6 +4,9 @@
 
 ## Requirements
 
+- Vue.js, vuex, vue-router, vuetify
+- Django
+
 frontend, backend 폴더 내의 package.json, requirements.txt에 명시되어 있습니다.
 
 ## Getting Started
@@ -36,3 +39,21 @@ VUE_APP_YOUTUBE_API=your_youtube_api_key
 ## Blog
 
 - [프로젝트에 대해 정리한 글](https://jdev.tistory.com/76)
+
+## Screen Shot
+
+### main
+
+![main_gif](README.assets/main_gif.gif)
+
+### detail - 1
+
+![v-dialog_gif](README.assets/v-dialog_gif.gif)
+
+### detail - 2s
+
+![detail_gif](README.assets/detail_gif.gif)
+
+### tinder
+
+![tinder_gif](README.assets/tinder_gif.gif)
