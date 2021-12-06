@@ -1,4 +1,4 @@
-# NETFLIX_TINDER
+# MOVIE_TINDER
 
 영화 정보 제공, 추천 프로젝트
 
